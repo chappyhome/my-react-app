@@ -43,5 +43,5 @@ jobs:
         run: cd myworker  # 切换到my-worker目录
 
       - name: Publish to Cloudflare Workers
-        run: wrangler deploy my-worker/index.js --apiToken ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: wrangler deploy myworker/index.js --apiToken ${{ secrets.CLOUDFLARE_API_TOKEN }}
         working-directory: myworker  # 确保切换到正确的目录
