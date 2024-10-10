@@ -39,5 +39,8 @@ jobs:
       - name: Install Wrangler
         run: npm install -g wrangler
 
+      - name: Change directory to my-worker
+        run: cd my-worker  # 切换到my-worker目录
+
       - name: Publish to Cloudflare Workers
         run: wrangler publish --env production --apiToken ${{ secrets.CLOUDFLARE_API_TOKEN }}
