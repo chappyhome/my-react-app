@@ -40,7 +40,8 @@ jobs:
         run: npm install -g wrangler
 
       - name: Change directory to my-worker
-        run: cd my-worker  # 切换到my-worker目录
+        run: cd myworker  # 切换到my-worker目录
 
       - name: Publish to Cloudflare Workers
         run: wrangler deploy my-worker/index.js --apiToken ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        working-directory: myworker  # 确保切换到正确的目录
