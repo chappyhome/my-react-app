@@ -43,8 +43,8 @@ jobs:
         run: npm run build
         working-directory: myworker
 
-      # - name: Change directory to my-worker
-      #   run: cd myworker  # 切换到my-worker目录
+      - name: Change directory to my-worker
+        run: cd myworker  # 切换到my-worker目录
 
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@2.0.0
