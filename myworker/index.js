@@ -9,8 +9,20 @@ export default {
       
       const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
       
-      return new Response(JSON.stringify({ quote: randomQuote }), {
-        headers: { 'Content-Type': 'application/json' },
+      // 创建响应头
+      const headers = new Headers({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET,HEAD,POST,OPTIONS',
+        'Access-Control-Max-Age': '86400',
       });
+
+      // 处理 OPTIONS 请求
+      if (request.method === 'OPTIONS') {
+        return new Response(null, { headers });
+      }
+      
+      // 返回带有 CORS 头的响应
+      return new Response(JSON.stringify({ quote: randomQuote }), { headers });
     }
   };
