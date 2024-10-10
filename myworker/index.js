@@ -3,7 +3,7 @@ export default {
       const quotes = [
         "Life is what happens when you're busy making other plans.",
         "The purpose of our lives is to be happy.11",
-        "Get busy living or get busy dying.",
+        "Get busy living or get busy dying5555.",
         "You have within you right now, everything you need to deal with whatever the world can throw at you."
       ];
       

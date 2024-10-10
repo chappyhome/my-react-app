@@ -7,7 +7,7 @@ function App() {
 
   useEffect(() => {
     const fetchQuote = async () => {
-      const response = await fetch('https://test_api.sgqjpw2023.workers.dev'); // 替换为你的Worker URL
+      const response = await fetch('https://testapi.sgqjpw2023.workers.dev'); // 替换为你的Worker URL
       const data = await response.json();
       setQuote(data.quote);
     };
