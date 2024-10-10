@@ -1,4 +1,4 @@
-name = "test_api"
+name = "testapi"
 type = "javascript"
 
 account_id = "b601153bf747b145beffc400d542c995"  # 替换为你的账户ID
