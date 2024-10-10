@@ -46,7 +46,7 @@ jobs:
       - name: Change directory to my-worker
         run: cd myworker  # 切换到my-worker目录
 
-      - name: Deploy to Cloudflare Workers
+      - name: Deploy to Cloudflare Workers1
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
