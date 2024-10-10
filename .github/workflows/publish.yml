@@ -39,6 +39,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+
+      - name: List files in the working directory
+        run: ls -la
+        working-directory: myworker
+
+
+      - name: Make index.js executable
+        run: chmod +x myworker/index.js
+        working-directory: myworker
+
       # - name: Change directory to my-worker
       #   run: cd myworker  # 切换到my-worker目录
 
