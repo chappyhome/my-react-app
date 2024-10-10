@@ -1,7 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useEffect, useState } from 'react';
 
 function App() {
+  const [quote, setQuote] = useState('');
+
+  useEffect(() => {
+    const fetchQuote = async () => {
+      const response = await fetch('https://test_api.sgqjpw2023.workers.dev'); // 替换为你的Worker URL
+      const data = await response.json();
+      setQuote(data.quote);
+    };
+
+    fetchQuote();
+  }, []);
   return (
     <div className="App">
       <header className="App-header">
@@ -15,7 +27,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React111
+          {quote}
         </a>
       </header>
     </div>

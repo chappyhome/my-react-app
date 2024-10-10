@@ -1,28 +1,43 @@
-name: Publish to Cloudflare Pages
+name: Deploy to Cloudflare Pages and Workers
 
 on:
   push:
     branches:
-      - main  # 或者你想要触发部署的其他分支
+      - master  # 或者你的主分支
 
 jobs:
-  publish:
+  deploy-pages:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      deployments: write
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
-      - name: Build project
-        run: npm install && npm run build  # 如果需要，可以替换为其他构建命令
+      - name: Install dependencies for React app
+        run: |
+          cd src && npm install
 
-      - name: Publish to Cloudflare Pages
+      - name: Build React app
+        run: |
+          cd src && npm run build
+
+      - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: my-react-app  # 替换为你的项目名称
-          directory: build  # 替换为你的构建输出目录，如果使用Create React App，通常是build
+          projectName: my-react-app  # 替换为你的Pages项目名称
+          directory: build  # React应用的构建目录
+
+  deploy-worker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Wrangler
+        run: npm install -g wrangler
+
+      - name: Publish to Cloudflare Workers
+        run: wrangler publish --env production --apiToken ${{ secrets.CLOUDFLARE_API_TOKEN }}
