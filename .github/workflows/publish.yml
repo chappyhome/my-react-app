@@ -36,12 +36,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install Wrangler
-        run: npm install -g wrangler
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Change directory to my-worker
-        run: cd myworker  # 切换到my-worker目录
+      - name: Build Worker
+        run: npm run build
+        working-directory: myworker
 
-      - name: Publish to Cloudflare Workers
-        run: wrangler deploy myworker/index.js --apiToken ${{ secrets.CLOUDFLARE_API_TOKEN }}
-        working-directory: myworker  # 确保切换到正确的目录
+      # - name: Change directory to my-worker
+      #   run: cd myworker  # 切换到my-worker目录
+
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@2.0.0
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          workingDirectory: myworker
