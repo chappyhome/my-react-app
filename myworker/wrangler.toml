@@ -4,3 +4,6 @@ type = "javascript"
 account_id = "b601153bf747b145beffc400d542c995"  # 替换为你的账户ID
 workers_dev = true
 compatibility_date = "2024-10-10"  # 当前日期
+
+# 添加以下行以指定入口点
+main = "index.js"  # 指向Worker的入口文件
