@@ -47,4 +47,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           workingDirectory: myworker
-          entryPoint: index.js  # 指定入口文件
+          entryPoint: myworker/index.js  # 指定入口文件
