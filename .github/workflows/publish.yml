@@ -43,4 +43,4 @@ jobs:
         run: cd my-worker  # 切换到my-worker目录
 
       - name: Publish to Cloudflare Workers
-        run: wrangler publish --env production --apiToken ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: wrangler deploy my-worker/index.js --apiToken ${{ secrets.CLOUDFLARE_API_TOKEN }}
