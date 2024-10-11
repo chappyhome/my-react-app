@@ -26,7 +26,7 @@ function App() {
         </nav>
       </header>
       <main>
-        <h2 className="text-4xl font-bold mb-4">博客111</h2>
+        <h2 className="text-4xl font-bold mb-4">博客1111</h2>
         <p className="text-gray-600 mb-8">个人原创博客日志。</p>
         <div className="space-y-8">
           <article>
