@@ -13,12 +13,12 @@ function App() {
         <nav>
           <ul className="flex space-x-4">
             <li>
-              <a href="#" className="text-gray-600 hover:text-gray-900">
+              <a href="/blog" className="text-gray-600 hover:text-gray-900">
                 博客
               </a>
             </li>
             <li>
-              <a href="#" className="text-gray-600 hover:text-gray-900">
+              <a href="/translations" className="text-gray-600 hover:text-gray-900">
                 翻译
               </a>
             </li>
